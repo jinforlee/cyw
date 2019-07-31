@@ -1,0 +1,130 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style type="text/css">
+    .fir{
+        width:300px;
+        height:500px;
+        flex-direction: column;
+        background:white;
+        border-radius: 25px;
+        padding:30px;
+    }  	
+    .sec{
+        width:500px;
+        height:500px;
+        flex-direction: column;
+        background:white;
+        border-radius: 25px;
+        padding :15px,30px,0px,30px;
+        justify-content:flex-end;
+        overflow:auto;
+    }
+    .fir > p{
+        font-size:20px;
+    }
+    
+    .post{
+       font-size:20px;
+       padding-left : 30px;
+       padding-right : 30px;
+       padding-top:15px;
+       flex-direction: column;
+       
+       
+     } 
+     
+     .comment{
+         font-size:15px;
+         padding-left:30px;
+         background:white;
+         display:flex;
+          justify-content:flex-start;
+     } 
+     .name{
+         background:RGB(228,229,223);
+         display:flex;
+         font-weight: bold;
+         justify-content:center;
+         font-size:20px;
+         padding :5px;
+         
+     }
+     img{
+         margin-right:20px;
+     }
+     button{
+         display:flex;
+         justify-content:center;
+         width:55px;
+         font-size:15px;
+         margin-left:400px;
+         margin-top:10px;
+     }
+          
+</style>
+      
+      
+  
+<div class= con>
+    <div class= con_>
+        <div class=fir>
+            <img id="prof" src="/static/image/prof.jpg" width="150" >
+            <p><br><br><br><br>난 지금 미쳐가고 있다<br>이 헤드폰에 내 모든 몸과<br> 영혼을 잃었다.<br>음악만이 나라에서 허락하는<br>유일한 마약이니까<br></p>
+        </div>
+        <div class=sec>
+                 
+                  <div class = post>
+                      <p class = name><b>난 가끔..</b></p>
+                       <img id="chae" src="/static/image/chae.PNG" width="300px" >
+                       <br><br>
+                       <p>난... ㄱ ㅏ끔...<br> 눈물을 흘린 ㄷ  ㅏ....
+                       <br>ㄱ  ㅏ끔은 눈물을 참을 수 없는 ㄴ  ㅐ가 별루다...
+                       <br>소 ㄹ ㅣ치며... 울 수 있 ㄷ ㅏ는건...<br>
+                       좋은 ㄱ ㅓ 야 ....
+                       <br> 머리ㄱ r ㅇ  r ㄴ  iㄴ 맘으로.. 우는,,,
+                       <br> ㄴ  ㅐ 가  좋..ㄷ r..☆</p>
+                    
+                   </div>
+                   
+                  <div class = post>
+                      <p class = name><b>Americano,,,</b></p>
+                       <img id="jang" src="/static/image/jang.PNG" width="400px" >
+                       <br><br>
+                       <p>따듯한 커피를 시키고<br> 사진을 찍고 수없이 메모를 하며
+                       <br>어느새 네 번이나 리필을 하는 그의 모습은
+                       <br>염치가 없다기보다는 그만의 여유를 한없이 즐기는 것 같아 보인다<br>
+                      <br><br> 그게 바로 지금의 내 모습이다</p>
+                    
+                   </div>
+                   
+                   <div class = post>
+                      <p class = name><b>눈물..is..</b></p>
+                       <img id="moon" src="/static/image/moon.PNG" width="400px" >
+                       <br><br>
+                       <p>눈물을 흘릴줄 아는 사람이 아름답다.<br> 이모 생각이 나서 너무 보고싶어서...
+                       <br>눈물이.....쏟아져....
+                       <br>보이나요 나의 눈물이..<br>보이나요 나의 한숨이..
+                      <br>하늘까지 닿을수만 있다면..</p>
+                    
+                   </div>
+                    
+            
+        </div>
+        <a href="{% url 'home' %}"><div class=button>
+            <p>Home</p>
+        </div> </a>
+        <a href="{% url 'world:visitor' %}"><div class=button>
+            <p>Visitor</p>
+        </div></a>
+        <a href="{% url 'world:gallery' %}"><div class=button>
+            <p>Gallery</p>
+        </div></a>
+    </div>
+</div>
+
+
+
+{% endblock %}

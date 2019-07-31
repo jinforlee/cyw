@@ -1,0 +1,21 @@
+<body class="vsc-initialized">
+<div>
+    <strong>Menu:</strong>
+    <ul>
+        <li><a href="/accounts/email/">Change E-mail</a></li>
+        <li><a href="/accounts/logout/">Sign Out</a></li>
+    </ul>
+</div>
+
+<h1>project templates / account / logout.html 페이지 입니다.</h1>
+<h1>Sign Out</h1>
+
+<p>Are you sure you want to sign out?</p>
+
+<form method="post" action="/accounts/logout/">
+    <input type="hidden" name="csrfmiddlewaretoken" value="CoyvLq4bXuXOFCnfamdvaEcBG2blGEw91EuHmU0QYVoSM6M6pD9QGAJlcaG3KW4i">
+    <button type="submit">Sign Out</button>
+    {% csrf_token %}
+</form>
+
+</body>

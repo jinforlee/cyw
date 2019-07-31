@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style type="text/css">
+    .fir{
+        width:300px;
+        height:500px;
+        flex-direction: column;
+        background:white;
+        border-radius: 25px;
+        padding:30px;
+    }  	
+    .sec{
+        width:500px;
+        height:500px;
+        flex-direction: column;
+        background:white;
+        border-radius: 25px;
+        padding :30px;
+    }
+    .fir > p{
+        font-size:20px;
+    }
+          
+    .can{
+        width :400px;
+        height :200px;
+    }     
+          
+</style>
+      
+   
+<div class= con>
+    <div class= con_>
+        <div class=fir>
+            <img id="prof" src="/static/image/prof.jpg" width="150" >
+            <p><br><br><br><br>난 지금 미쳐가고 있다<br>이 헤드폰에 내 모든 몸과<br> 영혼을 잃었다.<br>음악만이 나라에서 허락하는<br>유일한 마약이니까<br></p>
+        </div>
+        <div class=sec>
+            
+            <form action="{% url 'world:new' %}" method="POST">
+                {% csrf_token %}
+                
+                <label width="100">글의 제목</label><br>
+                <input type="text" name="title"><br>
+                
+                <label>글의 내용</label><br>
+                <textarea name="content"></textarea><br>
+                
+                <input type="submit" value="글쓰기">
+            </form>
+        </div>
+        
+        <a href="{% url 'home' %}"><div class=button>
+            <p>Home</p>
+        </div> </a>
+        <a href="{% url 'world:visitor' %}"><div class=button>
+            <p>Visitor</p>
+        </div></a>
+        <a href="{% url 'world:gallery' %}"><div class=button>
+            <p>Gallery</p>
+        </div></a>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+
+               

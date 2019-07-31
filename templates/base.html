@@ -1,0 +1,89 @@
+{% load static from staticfiles %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- 아래 한 줄 코드 추가 -->
+    <link rel="stylesheet" href="{% static 'css/project.css' %}">
+     <style type="text/css">
+      	@font-face { font-family: 'UhBeeMiMi'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeMiMi.woff') format('woff'); font-weight: normal; font-style: normal; }
+          
+          body{
+            display: flex;
+            justify-content: center;
+            background: RGB(136,136,136);
+            text-align: center;
+            font-family:'UhBeeMiMi';
+            font-size:10px; 
+          }
+          .con{
+            border-radius: 25px;
+            flex-wrap: wrap;
+      		  align-content: center;
+      		  margin-top : 100px;
+            display: flex;
+            background: RGB(142,215,230);
+            width:1000px;
+            height:600px;
+            flex-direction: column;
+          }
+          .con_{
+            border-radius: 25px;
+            flex-wrap: wrap;
+      		  align-content: center;
+      		  margin-top : 27px;
+            display: flex;
+            background: RGB(232,233,232);
+            width:900px;
+            height:550px;
+            flex-direction: column;
+            border-style: dotted;
+            border-color: RGB(152,229,242);
+            padding:30px;
+          }
+          .button{
+             border-radius: 5px;
+              width:60px;
+              margin-top : 7px;
+              background-color:  RGB(142,215,230);
+              color: black;
+              height:30px;
+              font-size: 12px;
+              cursor: pointer;
+              border-color: RGB(142,215,230);
+              color: white;
+              padding-top:4px;
+            
+          }
+            
+            
+            .button:hover {
+              background-color: white;
+              color: black;
+            }
+            
+          
+      </style>
+  </head>
+  <body>
+ <!-- 아래 두 줄 코드 추가 -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+      $(function () {
+        $('[data-toggle="popover"]').popover()
+      })
+    </script>
+  </body>
+</html>

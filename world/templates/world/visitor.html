@@ -1,0 +1,107 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style type="text/css">
+    .fir{
+        width:300px;
+        height:500px;
+        flex-direction: column;
+        background:white;
+        border-radius: 25px;
+        padding:30px;
+    }  	
+    .sec{
+        width:500px;
+        height:500px;
+        flex-direction: column;
+        background:white;
+        border-radius: 25px;
+        padding :15px,30px,0px,30px;
+        justify-content:flex-end;
+        overflow:auto;
+    }
+    .fir > p{
+        
+        font-size:20px;
+    }
+    
+    .post{
+       font-size:15px;
+       padding-left : 30px;
+       padding-right : 30px;
+       padding-top:15px;
+       flex-direction: row;
+       justify-content:flex-start;
+       
+     } 
+     .comment{
+         font-size:15px;
+         padding-left:30px;
+         background:white;
+         display:flex;
+          justify-content:flex-start;
+     } 
+     .name{
+         background:RGB(228,229,223);
+         display:flex;
+         justify-content:flex-start;
+         font-size:15px;
+         padding :3px;
+         
+     }
+     img{
+         margin-right:20px;
+     }
+     button{
+         display:flex;
+         justify-content:center;
+         width:55px;
+         font-size:15px;
+         margin-left:400px;
+         margin-top:10px;
+     }
+          
+</style>
+      
+      
+  
+<div class= con>
+    <div class= con_>
+        <div class=fir>
+            <img id="prof" src="/static/image/prof.jpg" width="150" >
+            <p><br><br><br><br>난 지금 미쳐가고 있다<br>이 헤드폰에 내 모든 몸과<br> 영혼을 잃었다.<br>음악만이 나라에서 허락하는<br>유일한 마약이니까<br></p>
+        </div>
+        <div class=sec>
+            <a href="{% url 'world:create' %}"><button>글쓰기</button></a>
+              {% for post in posts %}
+                 
+                  <div class = post>
+                      
+                    <a href="{% url 'world:show' post.id %}"><p class=name>No. {{ post.id }}    {{ post.user }} </p></a>
+                    
+                    
+                        <p class=comment><img id="visitor" src="/static/image/visitor.PNG" width="100" ><br>{{ post.content }}</p>
+                    
+                   </div>
+                    {% empty %}
+                    <p>글이 없습니다.</p>
+                {% endfor %}
+            
+        </div>
+        <a href="{% url 'home' %}"><div class=button>
+            <p>Home</p>
+        </div> </a>
+        <a href="{% url 'world:visitor' %}"><div class=button>
+            <p>Visitor</p>
+        </div></a>
+        <a href="{% url 'world:gallery' %}"><div class=button>
+            <p>Gallery</p>
+        </div></a>
+    </div>
+</div>
+
+
+
+{% endblock %}

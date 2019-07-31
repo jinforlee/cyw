@@ -1,0 +1,142 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style type="text/css">
+    .fir{
+        width:300px;
+        height:500px;
+        flex-direction: column;
+        background:white;
+        border-radius: 25px;
+        padding:30px;
+    }  	
+    .sec{
+        width:500px;
+        height:500px;
+        flex-direction: column;
+        background:white;
+        border-radius: 25px;
+        padding :15px,30px,0px,30px;
+        justify-content:flex-end;
+    }
+    .fir > p{
+        font-size:20px;
+    }
+    
+    .post{
+       font-size:15px;
+       padding-left : 30px;
+       padding-right : 30px;
+       padding-top:15px;
+       flex-direction: row;
+       justify-content:flex-start;
+       
+     } 
+     .comment{
+         font-size:15px;
+         padding-left:30px;
+         background:white;
+         display:flex;
+          justify-content:flex-start;
+     } 
+     .name{
+         background:RGB(228,229,223);
+         display:flex;
+         justify-content:flex-start;
+         justify-content:space-between;
+         font-size:15px;
+         padding :3px;
+         padding-left:20px;
+         padding-right:20px;
+         
+     }
+     img{
+         margin-right:20px;
+     }
+     .like{
+         display:flex;
+         flex-direction: row;
+         
+     }
+     .like > p{
+        margin-left:150px;
+     }
+     
+          
+</style>
+      
+      
+  
+<div class= con>
+    <div class= con_>
+        <div class=fir>
+            <img id="prof" src="/static/image/prof.jpg" width="150" >
+            <p><br><br><br><br>난 지금 미쳐가고 있다<br>이 헤드폰에 내 모든 몸과<br> 영혼을 잃었다.<br>음악만이 나라에서 허락하는<br>유일한 마약이니까<br></p>
+        </div>
+        <div class=sec>
+            
+              
+                 
+                  <div class = post>
+                      
+                    <div class=name>No. {{ post.id }}      .      {{ post.user }} 
+                        <form action="{% url 'world:delete' post.id %}" method="POST">
+                            {% csrf_token %}
+                            <input type="submit" value="삭제"> 
+                        </form></div><br>
+                    
+                        <p class=comment><img id="visitor" src="/static/image/visitor.PNG" width="100" ><br>{{ post.content }}</p>
+                   
+                    <div class=like>
+                        <form action="{% url 'world:like' post.id%}" method="POST">
+                            {% csrf_token %}
+                            <input type="image" src="/static/image/heart.png" width="30"  alt="Submit Form">
+                        </form>
+                       
+                        <a href="{% url 'world:new_comment' post.id %}"><img id="com" src="/static/image/com.png" height="30" ></a>
+                         {% for user in post.likes.all %}
+                          <p data-container="body" data-toggle="popover" data-placement="top" data-content= {{ user.username }}, > ♥ {{ post.likes.count }}</p>
+                        {% empty %}
+                        
+                        {% endfor %}
+                    </div>
+                   
+                    
+                        
+                        
+                        
+                   
+                    {% for comment in post.comments.all %}
+                        <div class=name>{{ comment.user }} : {{ comment.content }}
+                        <form action="{% url 'world:delete_comment' comment.id %}" method="POST">
+                            {% csrf_token %}
+                            <input type="submit" value="댓글삭제">
+                        </form>
+                        </div>
+                        {% empty %}
+                        
+                    {% endfor %}
+                   </div>
+                   
+                
+            
+        </div>
+        <a href="{% url 'home' %}"><div class=button>
+            <p>Home</p>
+        </div> </a>
+        <a href="{% url 'world:visitor' %}"><div class=button>
+            <p>Visitor</p>
+        </div></a>
+        <a href="{% url 'world:gallery' %}"><div class=button>
+            <p>Gallery</p>
+        </div></a>
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style type="text/css">
+    .fir{
+        width:300px;
+        height:500px;
+        flex-direction: column;
+        background:white;
+        border-radius: 25px;
+        padding:30px;
+    }  	
+    .sec{
+        width:500px;
+        height:500px;
+        display:flex;
+        flex-direction:column;
+        
+        justify-content: flex-start;
+        background:white;
+        border-radius: 25px;
+        padding-top:40px;
+        font-size:10px;
+    }
+    .secc>p{
+        margin-left:10px;
+    }
+    
+    .fir > p{
+        font-size:20px;
+    }
+    .secc{
+        text-align: left;
+        display:flex;
+        flex-direction:column;
+        justify-content: flex-start;
+        background:white;
+        
+        margin-left:25px;
+        font-size:14px;
+    }
+    
+          
+          
+</style>
+      
+      
+{% if user.is_authenticated %}     
+<div class= con>
+    <div class= con_>
+        <div class=fir>
+            <img id="prof" src="/static/image/prof.jpg" width="150" >
+            <p><br><br><br><br>난 지금 미쳐가고 있다<br>이 헤드폰에 내 모든 몸과<br> 영혼을 잃었다.<br>음악만이 나라에서 허락하는<br>유일한 마약이니까<br></p>
+        </div>
+        <div class=sec>
+            
+            <div class=secc>
+                <img id="gae" src="/static/image/gae.PNG" width="60" >
+                
+                <a href="{% url 'world:gallery' %}">난 가끔...</a>
+                <a href="{% url 'world:gallery' %}">Americano...</a>
+                <a href="{% url 'world:gallery' %}">눈물 is...</a>
+            </div>
+                <img id="mini" src="/static/image/mini.PNG" width="450" >
+            
+        </div>
+        
+        <a href="{% url 'home' %}"><div class=button>
+            <p>Home</p>
+        </div> </a>
+        <a href="{% url 'world:visitor' %}"><div class=button>
+            <p>Visitor</p>
+        </div></a>
+        <a href="{% url 'world:gallery' %}"><div class=button>
+            <p>Gallery</p>
+        </div></a>
+    </div>
+</div>
+
+
+{% else %}
+<div class= con>
+    <div class= con_>
+        <div class=fir>
+            <img id="prof" src="/static/image/prof.jpg" width="150" >
+            <p><br><br><br><br><br><br>난 지금 미쳐가고 있다<br>이 헤드폰에 내 모든 몸과<br> 영혼을 잃었다.<br>음악만이 나라에서 허락하는<br>유일한 마약이니까<br></p>
+        </div>
+        <div class=sec>
+            
+            <img id="mini" src="/static/image/mini.PNG" width="450" >
+        </div>
+        <a href="{% url 'account_login' %}"><div class=button>
+            <p>login</p>
+        </div> </a>
+       
+    </div>
+</div>
+
+{% endif %}
+{% endblock %}
